@@ -43,6 +43,7 @@ export default function Home() {
             animate="animate"
             exit="exit"
             className="min-h-screen w-full gradient-home text-white overflow-x-hidden"
+            style={{ backgroundColor: '#000000' }}
         >
             <Navbar />
 
