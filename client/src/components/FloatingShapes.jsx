@@ -32,7 +32,7 @@ function WireframeSphere({ position, size = 0.8, speed = 0.2, color = '#3b82f6' 
     return (
         <Float speed={1} rotationIntensity={0.2} floatIntensity={2}>
             <mesh ref={meshRef} position={position}>
-                <icosahedronGeometry args={[size, 1]} />
+                <icosahedronGeometry args={[size, 0]} />
                 <meshBasicMaterial color={color} wireframe transparent opacity={0.25} />
             </mesh>
         </Float>
@@ -50,14 +50,14 @@ function WireframeTorus({ position, size = 0.7, speed = 0.15, color = '#60a5fa' 
     return (
         <Float speed={0.8} rotationIntensity={0.4} floatIntensity={1}>
             <mesh ref={meshRef} position={position}>
-                <torusGeometry args={[size, size * 0.3, 8, 16]} />
+                <torusGeometry args={[size, size * 0.3, 6, 12]} />
                 <meshBasicMaterial color={color} wireframe transparent opacity={0.2} />
             </mesh>
         </Float>
     )
 }
 
-function Particles({ count = 40 }) {
+function Particles({ count = 30 }) { // Reduced count
     const positions = useMemo(() => {
         const pos = new Float32Array(count * 3)
         for (let i = 0; i < count; i++) {
@@ -92,7 +92,7 @@ function Scene() {
             <WireframeTorus position={[-1, -3, -5]} size={0.9} />
             <WireframeTorus position={[2, 3.5, -4]} size={0.5} color="#3b82f6" />
             <WireframeBox position={[0, -4, -6]} size={1.5} speed={0.15} color="#1e40af" />
-            <Particles count={50} />
+            <Particles count={30} />
         </>
     )
 }
@@ -103,8 +103,9 @@ export default function FloatingShapes({ className = '' }) {
             <Canvas
                 camera={{ position: [0, 0, 6], fov: 60 }}
                 dpr={[1, 1.5]}
+                performance={{ min: 0.5 }}
                 style={{ background: 'transparent' }}
-                gl={{ alpha: true, antialias: true }}
+                gl={{ alpha: true, antialias: false }} // Disable AA for performance on wireframes
             >
                 <Scene />
             </Canvas>

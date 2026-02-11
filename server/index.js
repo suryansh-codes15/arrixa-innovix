@@ -1,11 +1,24 @@
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
+import rateLimit from 'express-rate-limit'
 
 const app = express()
 const PORT = process.env.PORT || 3001
 
-// Middleware
-app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }))
+// Security Middleware
+app.use(helmet())
+app.use(cors({ origin: '*' })) // Allow all for now to avoid Vercel preview issues, restrict in prod if domain known
+
+// Rate Limiting
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+})
+app.use(limiter)
+
 app.use(express.json())
 
 // Health check

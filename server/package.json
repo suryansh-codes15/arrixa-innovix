@@ -8,7 +8,9 @@
     "dev": "node --watch index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.0",
-    "cors": "^2.8.5"
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0"
   }
 }

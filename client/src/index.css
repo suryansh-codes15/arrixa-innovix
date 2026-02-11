@@ -44,19 +44,20 @@ body {
   background: radial-gradient(circle at 50% 50%, #0a0a2e 0%, #000000 90%);
 }
 
-/* === Glassmorphism (Darker, Cleaner) === */
+/* === Glassmorphism (Darker, Cleaner, Optimized) === */
 .glass {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-card {
-  background: rgba(10, 10, 30, 0.4);
-  /* Dark blue tint */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 30, 0.6);
+  /* Slightly more opaque to compensate for less blur */
+  backdrop-filter: blur(6px);
+  /* Reduced from 12px for performance */
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
