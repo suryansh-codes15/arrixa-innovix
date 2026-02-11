@@ -1,24 +1,29 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import Card3D from '../Card3D'
 import AnimatedSection from '../AnimatedSection'
 
 const services = [
     {
+        id: 'software-development',
         icon: 'terminal',
         title: 'Software Development',
         description: 'Custom-built enterprise solutions designed for scalability, security, and peak performance across all platforms.',
     },
     {
+        id: 'website-designing',
         icon: 'web',
         title: 'Website Designing',
         description: 'Stunning, responsive designs that provide immersive user experiences across all devices and screen sizes.',
     },
     {
+        id: 'social-media-marketing',
         icon: 'campaign',
         title: 'Social Media Marketing',
         description: 'Strategic campaigns designed to amplify your brand voice and engage your target audience effectively.',
     },
     {
+        id: 'mobile-app-development',
         icon: 'phone_iphone',
         title: 'Mobile App Development',
         description: 'High-performance native and cross-platform apps that put your business in customers\' pockets.',
@@ -73,9 +78,9 @@ export default function ServicesSection({ id }) {
                                 <p className="text-blue-200/60 text-sm leading-relaxed flex-1">
                                     {service.description}
                                 </p>
-                                <div className="mt-8 flex items-center text-blue-400 text-sm font-semibold cursor-pointer group-hover:gap-2 transition-all">
+                                <Link to={`/services/${service.id}`} className="mt-8 flex items-center text-blue-400 text-sm font-semibold cursor-pointer group-hover:gap-2 transition-all">
                                     Learn More <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
-                                </div>
+                                </Link>
                             </Card3D>
                         </motion.div>
                     ))}

@@ -1,9 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Home from './pages/Home'
-import Services from './pages/Services'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import ServiceDetail from './pages/ServiceDetail'
 import ComingSoon from './pages/ComingSoon'
 
 function App() {
@@ -13,10 +11,10 @@ function App() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/services/:id" element={<ServiceDetail />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
+        {/* Redirect unknown routes to Home for SPA behavior */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </AnimatePresence>
   )
