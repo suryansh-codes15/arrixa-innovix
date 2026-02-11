@@ -20,7 +20,8 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </AnimatePresence>
-      )
+    </>
+  )
 }
 
-      export default App
+export default App
