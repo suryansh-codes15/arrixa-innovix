@@ -46,12 +46,11 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
-                    <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-                        <span className="material-symbols-outlined">rocket_launch</span>
-                    </div>
-                    <span className="font-display font-bold text-2xl tracking-tight text-white">
-                        Aarixa <span className="text-blue-500">Innovix</span>
-                    </span>
+                    <img
+                        src="/logo.jpg"
+                        alt="Aarixa Innovix"
+                        className="h-10 w-auto rounded-lg object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
                 </Link>
 
                 {/* Desktop Nav */}

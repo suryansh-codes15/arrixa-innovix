@@ -9,6 +9,7 @@ import Button3D from '../components/Button3D'
 import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
 import ContactSection from '../components/sections/ContactSection'
+import TechStackSection from '../components/sections/TechStackSection'
 
 const pageVariants = {
     initial: { opacity: 0 },
@@ -61,18 +62,20 @@ export default function Home() {
                 {/* Hero Content */}
                 <div className="relative z-10 container mx-auto px-6 py-12 flex flex-col items-center text-center">
                     <AnimatedSection className="mb-8">
-                        <div className="flex items-center justify-center w-20 h-20 mb-8 mx-auto rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl shadow-primary/20">
-                            <span className="material-symbols-outlined text-5xl text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">rocket_launch</span>
-                        </div>
+                        <img
+                            src="/logo.jpg"
+                            alt="Aarixa Innovix"
+                            className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-3xl object-contain shadow-2xl shadow-blue-500/30 border border-white/10"
+                        />
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight mb-6 text-white drop-shadow-lg">
-                            Aarixa <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Innovix</span>
+                            Aarixa <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Innovix</span>
                         </h1>
                         <p className="text-lg md:text-2xl font-light text-blue-100/80 tracking-wide max-w-3xl mx-auto leading-relaxed">
                             Innovating Tomorrow's Technology Today
                         </p>
                     </AnimatedSection>
 
-                    <AnimatedSection delay={0.2} className="mt-10 mb-20">
+                    <AnimatedSection delay={0.2} className="mt-10 mb-16">
                         <div className="flex flex-col md:flex-row gap-6 justify-center w-full max-w-md md:max-w-none mx-auto">
                             <Button3D href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }) }} className="px-8 py-4 text-lg w-full md:w-auto">
                                 Start Your Project
@@ -109,6 +112,7 @@ export default function Home() {
             </section>
 
             {/* Sections */}
+            <TechStackSection />
             <AboutSection id="about" />
             <ServicesSection id="services" />
 

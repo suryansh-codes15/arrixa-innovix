@@ -8,10 +8,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white">
-                                <span className="material-symbols-outlined text-sm">rocket_launch</span>
-                            </div>
-                            <span className="font-display font-bold text-xl tracking-tight">Aarixa Innovix</span>
+                            <img src="/logo.jpg" alt="Aarixa Innovix" className="h-12 w-auto rounded-lg object-contain" />
                         </div>
                         <p className="text-blue-100/60 max-w-sm mb-6">
                             Innovating tomorrow's technology today. Providing high-end digital solutions for growing enterprises worldwide.
