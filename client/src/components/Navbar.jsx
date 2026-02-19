@@ -47,9 +47,10 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
                     <img
-                        src="/logo.jpg"
+                        src="/logo.png"
                         alt="Aarixa Innovix"
-                        className="h-10 w-auto rounded-lg object-contain group-hover:scale-105 transition-transform duration-300"
+                        className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                        style={{ mixBlendMode: 'screen' }}
                     />
                 </Link>
 

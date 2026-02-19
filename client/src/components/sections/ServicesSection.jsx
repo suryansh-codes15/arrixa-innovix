@@ -17,19 +17,17 @@ const services = [
         description: 'Stunning, responsive designs that provide immersive user experiences across all devices and screen sizes.',
     },
     {
-        id: 'social-media-marketing',
-        icon: 'campaign',
-        title: 'Social Media Marketing',
-        description: 'Strategic campaigns designed to amplify your brand voice and engage your target audience effectively.',
-    },
-    {
         id: 'mobile-app-development',
         icon: 'phone_iphone',
         title: 'Mobile App Development',
         description: 'High-performance native and cross-platform apps that put your business in customers\' pockets.',
     },
-    // Adding extra dummy services to fill grid if needed or keep 4 for clean look.
-    // User screenshot shows 4 cards.
+    {
+        id: 'api-development',
+        icon: 'api',
+        title: 'API Development',
+        description: 'Robust, secure, and scalable REST & GraphQL APIs that power seamless integrations and data exchange across platforms.',
+    },
 ]
 
 const staggerContainer = {
@@ -62,7 +60,7 @@ export default function ServicesSection({ id }) {
                 </AnimatedSection>
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-stretch"
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"

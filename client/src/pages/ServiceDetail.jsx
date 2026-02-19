@@ -34,6 +34,13 @@ const serviceData = {
         description: 'High-performance native and cross-platform apps.',
         details: 'Put your business in the pockets of your customers with our cutting-edge mobile app development services. We build native and cross-platform apps that offer seamless performance.',
         features: ['iOS & Android App Development', 'Cross-Platform Solutions (React Native/Flutter)', 'App UI/UX Design', 'Maintenance & Support']
+    },
+    'api-development': {
+        title: 'API Development',
+        icon: 'api',
+        description: 'Robust, secure, and scalable REST & GraphQL APIs.',
+        details: 'We design and build powerful APIs that serve as the backbone of your digital ecosystem. From RESTful services to GraphQL endpoints, our APIs are secure, well-documented, and built for scale — enabling seamless integrations between your apps, third-party services, and platforms.',
+        features: ['REST & GraphQL API Design', 'Third-Party API Integration', 'API Security & Authentication', 'Documentation & Testing']
     }
 }
 
@@ -53,7 +60,7 @@ export default function ServiceDetail() {
     }
 
     return (
-        <div className="min-h-screen w-full bg-black text-white overflow-x-hidden selection:bg-blue-500/30">
+        <div className="min-h-screen w-full gradient-services bg-black text-white overflow-x-hidden selection:bg-blue-500/30">
             <Navbar />
 
             {/* Hero */}
@@ -62,6 +69,7 @@ export default function ServiceDetail() {
                 <div className="absolute inset-0 z-0">
                     <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-900/20 to-transparent" />
                     <div className="absolute top-20 right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]" />
+                    <div className="absolute bottom-0 left-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-[120px]" />
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-10">

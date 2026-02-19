@@ -82,8 +82,10 @@ export default function ContactSection({ id }) {
                                     >
                                         <option value="software">Software Development</option>
                                         <option value="website">Website Designing</option>
-                                        <option value="smm">Social Media Marketing</option>
                                         <option value="mobile">Mobile App Development</option>
+                                        <option value="backend">Backend Developer</option>
+                                        <option value="frontend">Frontend Developer</option>
+                                        <option value="dba">Database Administrator</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2">
@@ -122,9 +124,9 @@ export default function ContactSection({ id }) {
                     {/* Info Cards */}
                     <div className="lg:col-span-2 space-y-6">
                         {[
-                            { icon: 'mail', title: 'Email Us', text: 'info@aarixainnovix.com', subtext: 'We reply within 24 hours' },
-                            { icon: 'location_on', title: 'Global HQ', text: 'Tech District, Innovation sq', subtext: 'San Francisco, CA' },
-                            { icon: 'chat', title: 'Live Chat', text: 'Available Mon–Fri', subtext: '9am – 6pm EST' },
+                            { icon: 'mail', title: 'Email Us', text: 'info@aarixainnovix.com', subtext: '' },
+                            { icon: 'location_on', title: 'Our Office', text: 'Unit No. 1116, Tower B4, Spaze ITech Park, Sector 49', subtext: 'Gurugram, Haryana 122018' },
+                            { icon: 'chat', title: 'Live Chat', text: 'Available Mon–Sat', subtext: '9:30 AM – 6:00 PM IST' },
                         ].map((card, i) => (
                             <AnimatedSection key={card.title} delay={0.2 + i * 0.1}>
                                 <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors group">

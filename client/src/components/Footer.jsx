@@ -8,7 +8,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <img src="/logo.jpg" alt="Aarixa Innovix" className="h-12 w-auto rounded-lg object-contain" />
+                            <img src="/logo.png" alt="Aarixa Innovix" className="h-12 w-auto rounded-lg object-contain" />
                         </div>
                         <p className="text-blue-100/60 max-w-sm mb-6">
                             Innovating tomorrow's technology today. Providing high-end digital solutions for growing enterprises worldwide.
