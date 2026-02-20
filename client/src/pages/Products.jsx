@@ -184,10 +184,10 @@ export default function Products() {
         <div className="min-h-screen text-white selection:bg-blue-500/30">
             <Navbar />
 
-            <main className="pt-32 pb-24 px-6 relative overflow-hidden">
+            <main className="pt-24 md:pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">
                 <div className="fixed inset-0 z-0 pointer-events-none">
-                    <FloatingShapes className="opacity-40" />
-                    <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+                    <FloatingShapes className="opacity-20" />
+                    <div className="absolute inset-0 bg-grid-white/[0.01] bg-[size:40px_40px]" />
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto">
@@ -206,13 +206,13 @@ export default function Products() {
                     </AnimatedSection>
 
                     {/* Featured Product Hero */}
-                    <AnimatedSection delay={0.1} className="mb-24">
-                        <div className="relative rounded-[2rem] overflow-hidden border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-black p-8 md:p-12 lg:flex items-center gap-12 group">
+                    <AnimatedSection delay={0.1} className="mb-16 md:mb-24">
+                        <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-blue-950/40 p-6 md:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
-                            <div className="lg:w-1/2 mb-8 lg:mb-0 relative order-2 lg:order-1">
+                            <div className="w-full lg:w-1/2 relative order-2 lg:order-1">
                                 <div className="mb-6">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Featured Product</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Featured Product</span>
                                 </div>
                                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 group-hover:text-blue-400 transition-colors">
                                     {featuredProduct.title}
@@ -227,33 +227,32 @@ export default function Products() {
                                         </span>
                                     ))}
                                 </div>
-                                <Button3D className="px-10 py-4 text-base">
+                                <Button3D className="w-full sm:w-auto px-10 py-4 text-base">
                                     Request Demo
                                 </Button3D>
                             </div>
 
-                            <div className="lg:w-1/2 order-1 lg:order-2">
-                                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-colors duration-500 bg-blue-500/5">
+                            <div className="w-full lg:w-1/2 order-1 lg:order-2">
+                                <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-colors duration-500 bg-blue-500/5">
                                     <ProductVisual
                                         src={featuredProduct.image}
                                         title={featuredProduct.title}
                                         category={featuredProduct.category}
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20 pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950/60 to-transparent z-20 pointer-events-none" />
                                 </div>
                             </div>
                         </div>
                     </AnimatedSection>
 
-                    {/* Domain Filter */}
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-                        <div className="text-lg font-bold uppercase tracking-widest text-white/40">Explore Suite</div>
-                        <div className="flex flex-wrap justify-center gap-2">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                        <div className="text-sm font-bold uppercase tracking-widest text-white/40">Explore Suite</div>
+                        <div className="flex flex-wrap justify-center gap-3">
                             {domains.map((domain) => (
                                 <button
                                     key={domain}
                                     onClick={() => setActiveDomain(domain)}
-                                    className={`px-5 py-2 rounded-lg text-xs font-bold transition-all duration-300 border ${activeDomain === domain
+                                    className={`px-6 py-3 md:px-5 md:py-2 rounded-xl md:rounded-lg text-xs font-bold transition-all duration-300 border ${activeDomain === domain
                                         ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-500/25'
                                         : 'bg-white/5 text-blue-200/60 border-white/5 hover:bg-white/10 hover:text-white'
                                         }`}
@@ -283,7 +282,7 @@ export default function Products() {
                                             title={product.title}
                                             category={product.category}
                                         />
-                                        <div className="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase border border-white/10">
+                                        <div className="absolute top-3 right-3 z-20 bg-blue-950/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase border border-white/10">
                                             {product.category}
                                         </div>
                                     </div>
