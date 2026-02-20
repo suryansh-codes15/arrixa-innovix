@@ -5,8 +5,8 @@ import { NavLink, Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
     { to: '/', label: 'Home' },
+    { to: '/products', label: 'Products' },
     { to: '/#services', label: 'Services' },
-    { to: '/#about', label: 'About' },
     { to: '/#contact', label: 'Contact' },
 ]
 
@@ -42,16 +42,14 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent border-b border-transparent'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-blue-950/80 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent border-b border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
-                <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
-                    <img
-                        src="/logo.png"
-                        alt="Aarixa Innovix"
-                        className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-                        style={{ mixBlendMode: 'screen' }}
-                    />
+                <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group transform transition-transform hover:scale-105">
+                    <span className="text-2xl font-display font-bold tracking-tight">
+                        <span className="text-white">Aarixa</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400"> Innovix</span>
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Home from './pages/Home'
 import ServiceDetail from './pages/ServiceDetail'
+import Products from './pages/Products' // New Import
 import ComingSoon from './pages/ComingSoon'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -23,6 +24,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           {/* Redirect unknown routes to Home for SPA behavior */}

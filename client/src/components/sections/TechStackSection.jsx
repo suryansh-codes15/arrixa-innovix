@@ -12,6 +12,11 @@ const techStack = [
     { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
     { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
     { name: 'React Router', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'Artificial Intelligence', icon: 'https://cdn-icons-png.flaticon.com/512/8649/8649636.png' }, // Generic AI Brain Icon
+    { name: 'OpenAI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'WooCommerce', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg' },
+    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
     { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
 ]
 
@@ -20,7 +25,7 @@ const doubled = [...techStack, ...techStack]
 
 export default function TechStackSection() {
     return (
-        <section className="py-20 relative overflow-hidden border-y border-white/5 bg-black/40">
+        <section className="py-20 relative overflow-hidden border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
                 <p className="text-blue-500 font-semibold tracking-wider uppercase text-sm mb-3">Powered By</p>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
@@ -34,8 +39,8 @@ export default function TechStackSection() {
             {/* Marquee */}
             <div className="relative overflow-hidden">
                 {/* Fade edges */}
-                <div className="absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none" />
-                <div className="absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+                <div className="absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-[#020617] to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-[#020617] to-transparent pointer-events-none" />
 
                 <motion.div
                     className="flex gap-8 w-max"

@@ -123,15 +123,12 @@ export default function ComingSoon() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300"
+            className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white"
         >
-            {/* Dark BG */}
-            <div className="absolute inset-0 z-0 hidden dark:block radial-gradient-bg opacity-80" />
-
             {/* Ambient Blurs */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600 rounded-full blur-[120px] animate-pulse" />
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
             {/* Three.js Scene */}
@@ -167,19 +164,43 @@ export default function ComingSoon() {
                         </span>
                         WE ARE BUILDING SOMETHING AMAZING
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
                         Website is Coming Soon
                     </h2>
-                    <div className="h-1.5 w-32 bg-primary mx-auto rounded-full" style={{ boxShadow: '0 0 15px rgba(59,130,246,0.5)' }} />
+                    <div className="h-1.5 w-32 bg-blue-600 mx-auto rounded-full" style={{ boxShadow: '0 0 15px rgba(37,99,235,0.5)' }} />
                 </AnimatedSection>
 
                 {/* Services */}
-                <AnimatedSection delay={0.4} className="mb-16">
-                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 dark:text-slate-400 font-medium tracking-wide">
-                        <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">code</span>Software Development</span>
-                        <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">brush</span>Website Designing</span>
-                        <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">campaign</span>Social Media Marketing</span>
-                        <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">smartphone</span>Mobile App Development</span>
+                <AnimatedSection delay={0.4} className="mb-20">
+                    <div className="flex flex-col gap-12 max-w-4xl mx-auto">
+                        <div className="space-y-4">
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 text-center font-display">Core Solutions</h3>
+                            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 dark:text-slate-400 font-medium tracking-wide">
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">code</span>Software Dev</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">smartphone</span>Mobile Apps</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">web</span>E-commerce</span>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 text-center font-display">Industry Products</h3>
+                            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 dark:text-slate-400 font-medium tracking-wide">
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">groups</span>HRMS</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">medical_services</span>Medical</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">inventory_2</span>Inventory</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">fitness_center</span>Gym Management</span>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 text-center font-display">Future Tech</h3>
+                            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-500 dark:text-slate-400 font-medium tracking-wide">
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">receipt_long</span>Cloud Billing</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">point_of_sale</span>Modern POS</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">store</span>Multi-Vendor</span>
+                                <span className="flex items-center"><span className="material-symbols-outlined text-sm mr-2 text-primary">psychology</span>AI SaaS</span>
+                            </div>
+                        </div>
                     </div>
                 </AnimatedSection>
 

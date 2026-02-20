@@ -51,7 +51,6 @@ export default function Home() {
             animate="animate"
             exit="exit"
             className="min-h-screen w-full gradient-home text-white overflow-x-hidden"
-            style={{ backgroundColor: '#000000' }}
         >
             <Navbar />
 
@@ -62,119 +61,104 @@ export default function Home() {
 
                 {/* Rich ambient glow layers */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-                    <div className="absolute top-[-20%] left-[-15%] w-[60%] h-[60%] bg-blue-700/20 blur-[180px] rounded-full animate-pulse-slow" />
-                    <div className="absolute bottom-[-20%] right-[-15%] w-[55%] h-[55%] bg-indigo-600/15 blur-[180px] rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }} />
-                    <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] bg-cyan-500/10 blur-[120px] rounded-full animate-pulse-slow" style={{ animationDelay: '4s' }} />
+                    <div className="absolute top-[-20%] left-[-15%] w-[60%] h-[60%] bg-blue-600/20 blur-[180px] rounded-full animate-pulse-slow" />
+                    <div className="absolute bottom-[-20%] right-[-15%] w-[55%] h-[55%] bg-blue-800/20 blur-[180px] rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }} />
+                    <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] bg-blue-400/10 blur-[120px] rounded-full animate-pulse-slow" style={{ animationDelay: '4s' }} />
                 </div>
 
                 {/* Subtle grid overlay */}
+                <div className="absolute inset-0 z-[0] bg-grid-white/[0.05] pointer-events-none" />
+
                 <div
-                    className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none"
+                    className="absolute inset-0 z-[1] opacity-[0.2] pointer-events-none"
                     style={{
-                        backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-                        backgroundSize: '60px 60px',
+                        backgroundImage: 'radial-gradient(circle at center, transparent 0%, #000 100%)',
                     }}
                 />
 
                 {/* Hero Content */}
                 <div className="relative z-10 container mx-auto px-6 py-24 flex flex-col items-center text-center max-w-5xl">
-
-                    {/* Eyebrow tag */}
+                    {/* Eyebrow - Small Pill from Screenshot */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm mb-8"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center px-6 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm mb-12"
                     >
-                        <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping inline-block" />
-                        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-blue-300">Next-Gen Technology Company</span>
+                        <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-blue-300">Next-Gen Technology Company</span>
                     </motion.div>
 
-                    {/* Main headline - Company Name */}
+                    {/* Main headline - Brand Identity */}
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.2 }}
-                        className="text-6xl md:text-8xl lg:text-9xl font-display font-extrabold tracking-tight mb-4 leading-[1.0]"
+                        className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight mb-6"
                     >
-                        <span className="text-white">Aarixa </span>
-                        <span
-                            className="text-transparent bg-clip-text"
-                            style={{ backgroundImage: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 40%, #38bdf8 100%)' }}
-                        >
-                            Innovix
-                        </span>
+                        <span className="text-white">Aarixa</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-400"> Innovix</span>
                     </motion.h1>
 
-                    {/* Tagline */}
+                    {/* Mission Tagline */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        className="text-xl md:text-3xl font-display font-light text-blue-100/70 mb-10 max-w-3xl leading-relaxed"
+                    >
+                        Architecting the <span className="text-white font-medium italic underline underline-offset-8 decoration-blue-500/30">Future of Digital</span> through Precision Engineering & AI.
+                    </motion.p>
+
+                    {/* Subheadline - Detailed */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.32 }}
-                        className="text-xl md:text-2xl font-light tracking-widest uppercase text-blue-300/70 mb-6"
+                        transition={{ duration: 0.7, delay: 0.35 }}
+                        className="text-base md:text-lg text-white/40 max-w-2xl mx-auto leading-relaxed mb-12 font-light"
                     >
-                        Innovating Tomorrow's Technology Today
+                        Elite software solutions for <strong>Mutual Funds Boosters</strong>, High-Frequency Trading, and AI-Powered Enterprise Growth. Fast, Secure, and Built for Infinity.
                     </motion.p>
 
-                    {/* Subheadline */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.42 }}
-                        className="text-base md:text-lg text-white/40 max-w-xl mx-auto leading-relaxed mb-12"
-                    >
-                        We build world-class software, mobile apps, and digital experiences that help businesses grow faster and smarter.
-                    </motion.p>
-
-                    {/* CTAs */}
+                    {/* Interactive CTA & Trust badge */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
+                        transition={{ duration: 0.7, delay: 0.45 }}
+                        className="flex flex-col items-center gap-12"
                     >
-                        <Button3D
-                            href="#contact"
-                            onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }) }}
-                            className="px-10 py-4 text-base font-bold"
-                        >
-                            Start Your Project
-                            <span className="material-symbols-outlined text-sm ml-2">arrow_forward</span>
-                        </Button3D>
-                        <a
-                            href="#services"
-                            onClick={(e) => { e.preventDefault(); document.getElementById('services').scrollIntoView({ behavior: 'smooth' }) }}
-                            className="px-10 py-4 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:border-blue-400/40 backdrop-blur-sm transition-all duration-300 font-semibold flex items-center justify-center gap-2 text-white/90 hover:text-white"
-                        >
-                            <span className="material-symbols-outlined text-sm">grid_view</span>
-                            Explore Services
-                        </a>
-                    </motion.div>
+                        <div className="flex flex-wrap items-center justify-center gap-6">
+                            <Button3D className="px-10 py-5 text-lg" onClick={() => {
+                                const contact = document.getElementById('contact')
+                                contact?.scrollIntoView({ behavior: 'smooth' })
+                            }}>
+                                Start Building Your Vision
+                            </Button3D>
+                            <Link to="/products" className="text-sm font-bold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors py-4 px-6 border border-white/10 hover:border-white/30 rounded-full backdrop-blur-sm">
+                                Explore Products
+                            </Link>
+                        </div>
 
-                    {/* Stats row */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.65 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/10 w-full max-w-3xl"
-                    >
-                        {stats.map((stat, i) => (
-                            <div key={i} className="flex flex-col items-center py-6 px-4 bg-black/40 hover:bg-blue-900/20 transition-colors duration-300">
-                                <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">{stat.value}</span>
-                                <span className="text-xs text-white/40 mt-1 font-medium tracking-wide">{stat.label}</span>
+                        <div className="flex items-center gap-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400">Powering Excellence</span>
+                            <div className="h-4 w-px bg-white/10" />
+                            <div className="flex gap-6 text-[10px] items-center text-white/40 font-bold uppercase">
+                                <span>Scalable Infrastructure</span>
+                                <span>•</span>
+                                <span>AI Integration</span>
+                                <span>•</span>
+                                <span>Elite Design</span>
                             </div>
-                        ))}
+                        </div>
                     </motion.div>
                 </div>
 
                 {/* Scroll indicator */}
                 <motion.div
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/20"
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
                     animate={{ y: [0, 8, 0] }}
                     transition={{ repeat: Infinity, duration: 2.5 }}
                 >
-                    <span className="text-xs tracking-widest uppercase font-medium">Scroll</span>
-                    <span className="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
+                    <span className="text-[10px] tracking-[0.5em] uppercase font-bold">Scroll</span>
                 </motion.div>
             </section>
 
@@ -223,7 +207,7 @@ export default function Home() {
                     <span className="material-symbols-outlined text-2xl">chat</span>
                 </a>
             </div>
-        </motion.div>
+        </motion.div >
     )
 }
 

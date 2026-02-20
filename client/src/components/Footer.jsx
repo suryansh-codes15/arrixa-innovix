@@ -2,15 +2,18 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <footer className="bg-black/90 border-t border-white/10 pt-16 pb-8 relative z-10 text-white">
+        <footer className="bg-white/[0.02] backdrop-blur-sm border-t border-white/10 pt-16 pb-8 relative z-10 text-white">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
-                    <div className="lg:col-span-2">
-                        <div className="flex items-center gap-2 mb-6">
-                            <img src="/logo.png" alt="Aarixa Innovix" className="h-12 w-auto rounded-lg object-contain" />
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-2 group">
+                            <span className="text-2xl font-display font-bold tracking-tight">
+                                <span className="text-white">Aarixa</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Innovix</span>
+                            </span>
                         </div>
-                        <p className="text-blue-100/60 max-w-sm mb-6">
+                        <p className="text-blue-100/60 leading-relaxed max-w-xs">
                             Innovating tomorrow's technology today. Providing high-end digital solutions for growing enterprises worldwide.
                         </p>
                     </div>

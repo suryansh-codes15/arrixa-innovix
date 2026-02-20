@@ -28,6 +28,13 @@ const serviceData = {
         details: 'Maximize your brand reach and engagement with our data-driven social media marketing strategies. We create compelling content and manage your presence across all major platforms.',
         features: ['Content Strategy & Creation', 'Social Media Management', 'Paid Advertising Campaigns', 'Analytics & Reporting']
     },
+    'ecommerce-solutions': {
+        title: 'E-Commerce Solutions',
+        icon: 'shopping_cart',
+        description: 'Scalable online stores designed for growth.',
+        details: 'We build robust, high-performance e-commerce platforms using Shopify, WooCommerce, and custom solutions. Our stores are optimized for speed, conversion, and seamless user experience, ensuring your business can scale without limits.',
+        features: ['Custom Store Design', 'Payment Gateway Integration', 'Inventory Management', 'Mobile-First Optimization']
+    },
     'mobile-app-development': {
         title: 'Mobile App Development',
         icon: 'phone_iphone',
@@ -50,7 +57,7 @@ export default function ServiceDetail() {
 
     if (!service) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-black text-white">
+            <div className="min-h-screen flex items-center justify-center text-white">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
                     <Link to="/" className="text-blue-500 hover:underline">Go Back Home</Link>
@@ -60,7 +67,7 @@ export default function ServiceDetail() {
     }
 
     return (
-        <div className="min-h-screen w-full gradient-services bg-black text-white overflow-x-hidden selection:bg-blue-500/30">
+        <div className="min-h-screen w-full gradient-services text-white overflow-x-hidden selection:bg-blue-500/30">
             <Navbar />
 
             {/* Hero */}
@@ -97,7 +104,7 @@ export default function ServiceDetail() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {service.features.map((feature, i) => (
                             <AnimatedSection key={i} delay={i * 0.1}>
-                                <div className="p-6 rounded-xl bg-black/40 border border-white/10 hover:border-blue-500/50 transition-colors h-full">
+                                <div className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors h-full">
                                     <span className="material-symbols-outlined text-blue-500 mb-4">check_circle</span>
                                     <h3 className="text-lg font-semibold text-white">{feature}</h3>
                                 </div>
