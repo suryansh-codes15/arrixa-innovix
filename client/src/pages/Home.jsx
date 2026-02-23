@@ -50,7 +50,7 @@ export default function Home() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="min-h-screen w-full gradient-home text-white overflow-x-hidden"
+            className="min-h-screen w-full text-white overflow-x-hidden"
         >
             <Navbar />
 

@@ -42,7 +42,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-blue-950/80 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent border-b border-transparent'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/20 backdrop-blur-sm shadow-lg border-b border-white/5' : 'bg-transparent border-b border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group transform transition-transform hover:scale-105">
@@ -105,7 +105,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-t border-white/10 transition-all duration-300 overflow-hidden ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`md:hidden absolute top-full left-0 w-full bg-black/60 shadow-2xl border-t border-white/10 transition-all duration-300 overflow-hidden ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="px-6 py-4 space-y-4 flex flex-col">
                     {navLinks.map(({ to, label }) => (
                         <a

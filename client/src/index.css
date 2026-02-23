@@ -9,7 +9,6 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
-  background-color: #0f172a;
   scroll-behavior: smooth;
 }
 
@@ -18,8 +17,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  /* Uniform deep blue gradient fixed to viewport */
-  background: linear-gradient(to bottom, #1e40af 0%, #0f172a 100%) fixed;
+  /* Updated vibrant theme from screenshot - Darker */
+  background: linear-gradient(to right, #000000 0%, #000000 40%, #1f11aa 100%) fixed;
   color: rgba(255, 255, 255, 0.95);
 }
 
