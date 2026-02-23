@@ -41,12 +41,12 @@ export default function FinalCTASection() {
                             >
                                 Schedule a Strategy Call
                             </Button3D>
-                            <Link
-                                to="/products"
+                            <a
+                                href="/products"
                                 className="px-8 py-4 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-white transition-all border border-white/10 hover:border-white/30 rounded-full"
                             >
                                 Browse Our Products
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </motion.div>

@@ -14,10 +14,10 @@ const products = [
         title: 'Mutual Funds Booster',
         category: 'FinTech',
         featured: true,
-        description: 'AI-driven portfolio optimization for B2B, B2C, and RI.',
-        longDescription: 'Our flagship high-frequency trading algorithm and portfolio management system, precisely engineered for B2B, B2C, and RI (Registered Investment) segments. Leveraging predictive analytics and automated rebalancing to maximize returns while managing risk in real-time.',
+        description: 'AI-driven portfolio optimization engine.',
+        longDescription: 'Our flagship high-frequency trading algorithm and portfolio management system. Leveraging predictive analytics and automated rebalancing to maximize returns while managing risk in real-time.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
-        tags: ['B2B', 'B2C', 'RI', 'AI Prediction', 'HFT', 'Risk Management'],
+        tags: ['AI Prediction', 'HFT', 'Risk Management', 'Real-time Analytics'],
         status: 'Live'
     },
     {
