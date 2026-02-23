@@ -46,11 +46,11 @@ export default function Footer() {
                         &copy; 2026 Aarixa Innovix. All rights reserved.
                     </p>
                     <div className="flex gap-6">
-                        <a className="text-blue-100/40 hover:text-blue-400 transition-colors" href="#">
-                            <span className="material-symbols-outlined">share</span>
+                        <a className="text-blue-100/40 hover:text-blue-400 transition-colors" href="#" aria-label="Share this page">
+                            <span className="material-symbols-outlined" aria-hidden="true">share</span>
                         </a>
-                        <a className="text-blue-100/40 hover:text-blue-400 transition-colors" href="#">
-                            <span className="material-symbols-outlined">language</span>
+                        <a className="text-blue-100/40 hover:text-blue-400 transition-colors" href="#" aria-label="Change language">
+                            <span className="material-symbols-outlined" aria-hidden="true">language</span>
                         </a>
                     </div>
                 </div>

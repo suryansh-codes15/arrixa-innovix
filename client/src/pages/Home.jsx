@@ -10,6 +10,9 @@ import AboutSection from '../components/sections/AboutSection'
 import ServicesSection from '../components/sections/ServicesSection'
 import ContactSection from '../components/sections/ContactSection'
 import TechStackSection from '../components/sections/TechStackSection'
+import EngineeringImpactSection from '../components/sections/EngineeringImpactSection'
+import ProcessSection from '../components/sections/ProcessSection'
+import FinalCTASection from '../components/sections/FinalCTASection'
 
 const pageVariants = {
     initial: { opacity: 0 },
@@ -92,8 +95,8 @@ export default function Home() {
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight mb-6"
+                        transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6"
                     >
                         <span className="text-white">Aarixa</span>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-400"> Innovix</span>
@@ -103,8 +106,8 @@ export default function Home() {
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
-                        className="text-xl md:text-3xl font-display font-light text-blue-100/70 mb-10 max-w-3xl leading-relaxed"
+                        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-lg md:text-2xl font-display font-light text-blue-100/70 mb-10 max-w-3xl leading-relaxed"
                     >
                         Architecting the <span className="text-white font-medium italic underline underline-offset-8 decoration-blue-500/30">Future of Digital</span> through Precision Engineering & AI.
                     </motion.p>
@@ -164,34 +167,37 @@ export default function Home() {
 
             {/* ─── SECTIONS ─── */}
             <TechStackSection />
+
+            {/* ─── TECH CTA HOOK ─── */}
+            <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6 border-y border-white/5 bg-white/[0.01]">
+                <div className="text-white font-medium text-lg italic opacity-70">"Stripe-level precision. Vercel-grade speed. Built for Arrixa."</div>
+                <Button3D className="px-8 py-3 text-sm" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Start Your Project
+                </Button3D>
+            </div>
+
             <AboutSection id="about" />
             <ServicesSection id="services" />
 
-            {/* ─── CTA BANNER ─── */}
-            <section className="py-24 px-6 relative overflow-hidden">
-                <div className="max-w-5xl mx-auto rounded-[2.5rem] border border-white/10 text-white p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
-                    style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)' }}
+            {/* ─── SERVICES CTA HOOK ─── */}
+            <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+                <p className="text-blue-100/40 text-sm font-bold uppercase tracking-[0.3em] mb-6">Execution meets Innovation</p>
+                <a
+                    href="#impact"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('impact')?.scrollIntoView({ behavior: 'smooth' }) }}
+                    className="group inline-flex items-center gap-2 text-xl font-bold text-white hover:text-blue-400 transition-colors"
                 >
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/15 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-                    <div className="relative z-10">
-                        <p className="text-blue-400 font-semibold tracking-widest uppercase text-sm mb-4">Let's Build Together</p>
-                        <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
-                            Ready to Transform<br />Your Business?
-                        </h2>
-                        <p className="text-blue-100/60 text-lg max-w-xl mx-auto mb-10">
-                            Schedule a free consultation and let's discuss how we can bring your vision to life.
-                        </p>
-                        <Button3D
-                            href="#contact"
-                            onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }) }}
-                            className="px-10 py-4 text-base font-bold"
-                        >
-                            Get in Touch Now
-                        </Button3D>
-                    </div>
-                </div>
-            </section>
+                    See our Engineering Impact in Action
+                    <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+
+            <EngineeringImpactSection id="impact" />
+
+            {/* ─── ENGINEERING APPROACH ─── */}
+            <ProcessSection />
+
+            <FinalCTASection />
 
             <ContactSection id="contact" />
             <Footer />
@@ -203,8 +209,9 @@ export default function Home() {
                     onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }) }}
                     className="flex items-center justify-center w-14 h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-xl shadow-blue-900/50 transition-all transform hover:scale-110 active:scale-95 border border-white/10"
                     title="Contact Us"
+                    aria-label="Open contact form"
                 >
-                    <span className="material-symbols-outlined text-2xl">chat</span>
+                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">chat</span>
                 </a>
             </div>
         </motion.div >

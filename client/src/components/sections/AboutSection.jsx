@@ -63,9 +63,14 @@ export default function AboutSection({ id }) {
                             <span className="text-blue-500">Aarixa Innovix</span>
                         </h2>
                         <div className="w-24 h-1.5 bg-blue-500 rounded-full mb-8" />
-                        <p className="text-xl text-blue-100/80 font-medium leading-relaxed">
-                            Innovating Tomorrow's Technology Today. We bridge the gap between complex challenges and elegant digital solutions.
+                        <p className="text-xl text-blue-100/80 font-medium leading-relaxed mb-8">
+                            Arrixa Innovix is a high-performance technology partner for companies that demand institutional-grade engineering and architectural excellence.
                         </p>
+                        <div className="flex flex-wrap gap-4">
+                            <Button3D className="px-8 py-4 text-sm font-bold" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                                Inquire for Architecture Quote
+                            </Button3D>
+                        </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.2} className="lg:col-span-7 space-y-8 py-4 lg:py-12 relative">

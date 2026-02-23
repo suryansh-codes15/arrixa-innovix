@@ -98,8 +98,8 @@ export default function Navbar() {
 
                 {/* Mobile Hamburger */}
                 <div className="flex items-center gap-4 md:hidden">
-                    <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 text-white/80 hover:text-blue-400 transition-colors">
-                        <span className="material-symbols-outlined text-3xl">{menuOpen ? 'close' : 'menu'}</span>
+                    <button onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} className="p-2 text-white/80 hover:text-blue-400 transition-colors">
+                        <span className="material-symbols-outlined text-3xl" aria-hidden="true">{menuOpen ? 'close' : 'menu'}</span>
                     </button>
                 </div>
             </div>

@@ -14,10 +14,10 @@ const products = [
         title: 'Mutual Funds Booster',
         category: 'FinTech',
         featured: true,
-        description: 'AI-driven portfolio optimization engine.',
-        longDescription: 'Our flagship high-frequency trading algorithm and portfolio management system. Leveraging predictive analytics and automated rebalancing to maximize returns while managing risk in real-time.',
+        description: 'AI-driven portfolio optimization for B2B, B2C, and RI.',
+        longDescription: 'Our flagship high-frequency trading algorithm and portfolio management system, precisely engineered for B2B, B2C, and RI (Registered Investment) segments. Leveraging predictive analytics and automated rebalancing to maximize returns while managing risk in real-time.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
-        tags: ['AI Prediction', 'HFT', 'Risk Management', 'Real-time Analytics'],
+        tags: ['B2B', 'B2C', 'RI', 'AI Prediction', 'HFT', 'Risk Management'],
         status: 'Live'
     },
     {
@@ -197,7 +197,7 @@ export default function Products() {
                             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                             Multi-Domain Solutions
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                             Proprietary <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-400">Software Suite</span>
                         </h1>
                         <p className="text-blue-100/60 max-w-2xl mx-auto text-lg font-light">
@@ -207,7 +207,7 @@ export default function Products() {
 
                     {/* Featured Product Hero */}
                     <AnimatedSection delay={0.1} className="mb-16 md:mb-24">
-                        <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-blue-950/40 p-6 md:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 group">
+                        <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-blue-950/40 p-6 md:p-10 lg:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
                             <div className="w-full lg:w-1/2 relative order-2 lg:order-1">
@@ -222,7 +222,9 @@ export default function Products() {
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-10">
                                     {featuredProduct.tags.map(tag => (
-                                        <span key={tag} className="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                                        <span key={tag} className={`text-xs px-3 py-1 rounded-full border transition-colors ${['B2B', 'B2C', 'RI'].includes(tag)
+                                            ? 'bg-blue-500 text-white border-blue-400 font-bold'
+                                            : 'bg-blue-500/10 text-blue-300 border-blue-500/20'}`}>
                                             #{tag}
                                         </span>
                                     ))}
