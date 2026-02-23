@@ -107,22 +107,37 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <div className={`md:hidden absolute top-full left-0 w-full bg-black/60 shadow-2xl border-t border-white/10 transition-all duration-300 overflow-hidden ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="px-6 py-4 space-y-4 flex flex-col">
-                    {navLinks.map(({ to, label }) => (
-                        <a
-                            key={to}
-                            href={to}
-                            onClick={(e) => {
-                                setMenuOpen(false);
-                                if (location.pathname === '/' && to.includes('#')) {
-                                    e.preventDefault();
-                                    scrollToSection(to);
-                                }
-                            }}
-                            className="text-lg font-medium text-white/80 hover:text-blue-400 transition-colors"
-                        >
-                            {label}
-                        </a>
-                    ))}
+                    {navLinks.map(({ to, label }) => {
+                        const isHash = to.includes('#');
+                        return isHash ? (
+                            <a
+                                key={to}
+                                href={to}
+                                onClick={(e) => {
+                                    setMenuOpen(false);
+                                    if (location.pathname === '/' && isHash) {
+                                        e.preventDefault();
+                                        scrollToSection(to);
+                                    }
+                                }}
+                                className="text-lg font-medium text-white/80 hover:text-blue-400 transition-colors"
+                            >
+                                {label}
+                            </a>
+                        ) : (
+                            <Link
+                                key={to}
+                                to={to}
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                className="text-lg font-medium text-white/80 hover:text-blue-400 transition-colors"
+                            >
+                                {label}
+                            </Link>
+                        )
+                    })}
                     <a
                         href="/#contact"
                         onClick={(e) => {
