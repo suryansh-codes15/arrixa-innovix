@@ -2,8 +2,15 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { z } from 'zod'
 
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend lazily to prevent build-time errors when API key is missing
+let resend
+try {
+    if (process.env.RESEND_API_KEY) {
+        resend = new Resend(process.env.RESEND_API_KEY)
+    }
+} catch (e) {
+    console.warn('Resend failed to initialize:', e.message)
+}
 
 // Validation Schema — strict bounds to prevent abuse
 const contactSchema = z.object({
@@ -118,6 +125,11 @@ export async function POST(req) {
         const safeName = sanitizeHtml(data.name)
         const safeSubject = sanitizeHtml(data.subject)
         const safeMessage = sanitizeHtml(data.message)
+
+        if (!resend) {
+            console.error('Email service not configured (missing RESEND_API_KEY)')
+            return NextResponse.json({ error: 'Mail service unavailable. Please try again later.' }, { status: 503 })
+        }
 
         // Send admin notification
         const { error: adminError } = await resend.emails.send({
