@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_next/
+Disallow: /server/
+
+Sitemap: https://aarixainnovix.com/sitemap.xml
