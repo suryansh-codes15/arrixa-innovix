@@ -5,11 +5,11 @@ import { Component } from 'react'
 export default class ErrorBoundary extends Component {
     constructor(props) {
         super(props)
-        this.state = { hasError: false, errorId: null }
+        this.state = { hasError: false, errorId: null, error: null }
     }
 
-    static getDerivedStateFromError() {
-        return { hasError: true, errorId: `ERR-${Date.now()}` }
+    static getDerivedStateFromError(error) {
+        return { hasError: true, errorId: `ERR-${Date.now()}`, error }
     }
 
     componentDidCatch() {
@@ -31,7 +31,10 @@ export default class ErrorBoundary extends Component {
                                 info@aarixainnovix.com
                             </a>
                         </p>
-                        <p className="text-blue-100/20 text-xs mb-6 font-mono">{this.state.errorId}</p>
+                        <p className="text-blue-100/20 text-xs mb-6 font-mono">
+                            {this.state.errorId}<br />
+                            {this.state.error?.message}
+                        </p>
                         <button
                             onClick={() => window.location.reload()}
                             className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-semibold transition-all text-sm"

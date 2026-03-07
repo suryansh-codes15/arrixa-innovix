@@ -36,11 +36,6 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <Link className="hover:text-blue-400 transition-colors" to="/certification">
-                                    Certification
-                                </Link>
-                            </li>
-                            <li>
                                 <Link className="hover:text-blue-400 transition-colors" to="/about">
                                     About Us
                                 </Link>

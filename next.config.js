@@ -40,6 +40,15 @@ const nextConfig = {
             { protocol: 'https', hostname: 'cdn.jsdelivr.net' },
         ],
     },
+    async redirects() {
+        return [
+            {
+                source: '/certification',
+                destination: '/',
+                permanent: true,
+            },
+        ]
+    },
     async headers() {
         return [
             {

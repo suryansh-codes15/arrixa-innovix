@@ -93,7 +93,6 @@ export default function ContactSection({ id }) {
                                     >
                                         <option value="mutual-fund-planning">Mutual Fund Booster — Planning Query</option>
                                         <option value="product-enquiry">Product Enquiry</option>
-                                        <option value="certification">Certification &amp; Compliance</option>
                                         <option value="technical-support">Technical Support</option>
                                         <option value="partnership">Partnership &amp; Collaboration</option>
                                         <option value="other">Other</option>

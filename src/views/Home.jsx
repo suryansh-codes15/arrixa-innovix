@@ -123,7 +123,7 @@ export default function Home() {
                         transition={{ duration: 0.6 }}
                         className="inline-flex items-center px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm mb-10"
                     >
-                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-blue-300">Intelligent Wealth Planning</span>
+                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-blue-300">Engineering Excellence</span>
                     </motion.div>
 
                     <motion.h1
@@ -142,8 +142,8 @@ export default function Home() {
                         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="text-lg sm:text-xl md:text-2xl font-display font-light text-blue-100/70 mb-8 max-w-2xl leading-relaxed"
                     >
-                        Smarter Mutual Fund Planning.{' '}
-                        <span className="text-white font-medium italic underline underline-offset-8 decoration-blue-500/30">Backed by Data.</span>
+                        Innovating Tomorrow's{' '}
+                        <span className="text-white font-medium italic underline underline-offset-8 decoration-blue-500/30">Technology Today.</span>
                     </motion.p>
 
                     <motion.p
@@ -152,7 +152,7 @@ export default function Home() {
                         transition={{ duration: 0.7, delay: 0.35 }}
                         className="text-sm sm:text-base md:text-lg text-white/40 max-w-xl mx-auto leading-relaxed mb-10 font-light"
                     >
-                        Set a goal, enter what you can invest, and get a clear SIP plan — with equity-debt allocation and inflation-adjusted projections included.
+                        High-performance technology partner for companies that demand institutional-grade engineering and architectural excellence.
                     </motion.p>
 
                     <motion.div
@@ -165,13 +165,13 @@ export default function Home() {
                             <Button3D className="px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg" onClick={() => {
                                 document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })
                             }}>
-                                Start Planning
+                                Explore Solutions
                             </Button3D>
                             <button
-                                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => document.getElementById('tech-stack')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors py-3 sm:py-4 px-5 sm:px-6 border border-white/10 hover:border-white/30 rounded-full backdrop-blur-sm"
                             >
-                                How It Works
+                                Our Impact
                             </button>
                         </div>
 
@@ -179,11 +179,11 @@ export default function Home() {
                             <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400">Built for</span>
                             <div className="h-3 w-px bg-white/20" />
                             <div className="flex gap-4 text-[10px] items-center text-white/50 font-bold uppercase">
-                                <span>Goal-Based SIP</span>
+                                <span>Custom Software</span>
                                 <span>·</span>
-                                <span>Inflation Adjusted</span>
+                                <span>Scalable Systems</span>
                                 <span>·</span>
-                                <span>Transparent Math</span>
+                                <span>Advanced AI</span>
                             </div>
                         </div>
                     </motion.div>
@@ -197,9 +197,6 @@ export default function Home() {
                     <span className="text-[10px] tracking-[0.5em] uppercase font-bold">Scroll</span>
                 </motion.div>
             </section>
-
-            {/* TECH STACK */}
-            <TechStackSection />
 
             {/* PRODUCT FEATURES */}
             <section id="product" className="py-20 sm:py-28">
@@ -233,6 +230,9 @@ export default function Home() {
                     </AnimatedSection>
                 </div>
             </section>
+
+            {/* TECH STACK */}
+            <TechStackSection />
 
             {/* HOW IT WORKS */}
             <section id="how-it-works" className="py-20 sm:py-28 bg-white/[0.01] border-y border-white/5">
@@ -300,56 +300,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* CERTIFICATION */}
-            <section id="certification" className="py-20 sm:py-28 bg-white/[0.01] border-y border-white/5">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
-                        <AnimatedSection>
-                            <p className="text-blue-500 font-semibold tracking-wider uppercase text-sm mb-3">Compliance</p>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6">Registered in India</h2>
-                            <p className="text-blue-200/60 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-                                Aarixa Innovix is a formally registered company. We're not anonymous — our incorporation documents are verifiable and available on request.
-                            </p>
-                            <ul className="space-y-3 mb-8 text-blue-100/60">
-                                {[
-                                    'Registered entity — documents available on request',
-                                    'No hidden affiliations or undisclosed conflicts',
-                                    'All calculation logic is disclosed and verifiable',
-                                    'Operates under the Indian regulatory framework',
-                                ].map((item) => (
-                                    <li key={item} className="flex items-start gap-3">
-                                        <span className="material-symbols-outlined text-base text-blue-400 mt-0.5 flex-shrink-0">check_circle</span>
-                                        <span className="text-xs sm:text-sm">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link
-                                to="/certification"
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-semibold transition-all shadow-lg shadow-blue-500/25"
-                            >
-                                View Certification
-                            </Link>
-                        </AnimatedSection>
-
-                        <AnimatedSection delay={0.15}>
-                            <div className="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 flex flex-col items-center justify-center text-center min-h-[240px] sm:min-h-[280px] hover:border-blue-500/30 transition-all">
-                                <span className="material-symbols-outlined text-5xl sm:text-6xl text-blue-400/40 mb-4 sm:mb-5">workspace_premium</span>
-                                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Certificate of Incorporation</h3>
-                                <p className="text-blue-100/60 text-sm mb-5 sm:mb-6">Aarixa Innovix Pvt. Ltd.</p>
-                                <Link
-                                    to="/certification"
-                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                    className="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-1 transition-colors"
-                                >
-                                    View Full Certificate
-                                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                                </Link>
-                            </div>
-                        </AnimatedSection>
-                    </div>
-                </div>
-            </section>
 
             {/* WHAT'S COMING */}
             <section id="innovation" className="py-20 sm:py-28">

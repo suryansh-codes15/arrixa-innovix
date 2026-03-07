@@ -6,7 +6,6 @@ import { AnimatePresence } from 'framer-motion'
 import ErrorBoundary from './components/ErrorBoundary'
 import Home from './views/Home'
 import About from './views/About'
-import Certification from './views/Certification'
 import Terms from './views/Terms'
 import Privacy from './views/Privacy'
 import Refund from './views/Refund'
@@ -26,7 +25,6 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/certification" element={<Certification />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/refund" element={<Refund />} />

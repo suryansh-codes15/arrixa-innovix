@@ -7,7 +7,6 @@ import Button3D from './Button3D'
 const navLinks = [
     { to: '/', label: 'Home', id: 'home' },
     { to: '/about', label: 'About', id: 'about' },
-    { to: '/certification', label: 'Certification', id: 'certification' },
 ]
 
 export default function Navbar() {
