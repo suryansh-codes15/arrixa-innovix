@@ -1,130 +1,121 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
-import Card3D from '../components/Card3D'
+import Footer from '../components/Footer'
 import AnimatedSection from '../components/AnimatedSection'
+import FloatingShapes from '../components/FloatingShapes'
+import Button3D from '../components/Button3D'
 
-const pageVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
-}
-
-const services = [
-    {
-        icon: 'terminal',
-        title: 'Software Development',
-        description: 'Custom-built enterprise solutions designed for scalability, security, and peak performance across all platforms.',
-    },
-    {
-        icon: 'web',
-        title: 'Website Designing',
-        description: 'Stunning, responsive designs that provide immersive user experiences across all devices and screen sizes.',
-    },
-    {
-        icon: 'campaign',
-        title: 'Social Media Marketing',
-        description: 'Strategic campaigns designed to amplify your brand voice and engage your target audience effectively.',
-    },
-    {
-        icon: 'phone_iphone',
-        title: 'Mobile App Development',
-        description: 'High-performance native and cross-platform apps that put your business in customers\' pockets.',
-    },
-]
-
-const staggerContainer = {
-    hidden: {},
-    visible: {
-        transition: { staggerChildren: 0.12 },
-    },
-}
-
-const staggerItem = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-}
+import { useState, useEffect } from 'react'
 
 export default function Services() {
-    return (
-        <motion.div
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300"
-        >
-            {/* Background */}
-            <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-50" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-[120px] opacity-50" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[150px] opacity-40" />
-            </div>
+    const [coreServices, setCoreServices] = useState([])
+    const [loading, setLoading] = useState(true)
 
+    useEffect(() => {
+        fetch('/api/crud/service')
+            .then(res => res.json())
+            .then(data => { setCoreServices(data || []); setLoading(false) })
+            .catch(() => setLoading(false))
+    }, [])
+    return (
+        <div className="min-h-screen text-white selection:bg-blue-500/30 overflow-x-hidden">
             <Navbar />
 
-            <main className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-                {/* Hero */}
-                <AnimatedSection className="text-center mb-20 space-y-5">
-                    <p className="text-primary font-semibold tracking-wider uppercase text-sm">What We Do</p>
-                    <h1 className="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
-                        Innovating <span className="text-primary glow-text">Tomorrow's</span> Technology Today
-                    </h1>
-                    <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
-                        Comprehensive digital solutions tailored to elevate your business in the modern tech landscape.
-                    </p>
-                </AnimatedSection>
+            <main className="pt-24 md:pt-32 pb-24 relative">
+                <FloatingShapes className="opacity-20 fixed inset-0 pointer-events-none -z-10" />
+                <div className="absolute inset-0 bg-grid-white/[0.01] bg-[size:40px_40px] fixed pointer-events-none -z-10" />
 
-                {/* Service Cards */}
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                >
-                    {services.map((service) => (
-                        <motion.div key={service.title} variants={staggerItem}>
-                            <Card3D className="flex flex-col items-center text-center group h-full">
-                                <div className="w-14 h-14 bg-primary/10 dark:bg-primary/15 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                                    <span className="material-symbols-outlined text-3xl">{service.icon}</span>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 z-10 relative">
+                    
+                    {/* Header */}
+                    <AnimatedSection className="text-center mb-20 md:mb-28 mt-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+                            Core Offerings
+                        </div>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 tracking-tight">
+                            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Growth</span>
+                        </h1>
+                        <p className="text-blue-200/60 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                            Discover how our specialized technological services can accelerate your operations and scale your revenue.
+                        </p>
+                    </AnimatedSection>
+
+                    {/* Detailed Service Blocks */}
+                    <div className="space-y-24 md:space-y-32 mb-24">
+                        {coreServices.map((service, i) => (
+                            <AnimatedSection key={service.id} className="relative">
+                                {/* Connector Line for desktop between blocks */}
+                                {i !== coreServices.length - 1 && (
+                                    <div className="hidden md:block absolute top-[100%] left-[50px] w-px h-[100px] bg-gradient-to-b from-blue-500/30 to-transparent" />
+                                )}
+
+                                <div className="glass-card rounded-[2rem] p-8 md:p-12 lg:p-16 border border-white/5 bg-white/[0.02] hover:bg-white/[0.03] hover:border-blue-500/20 transition-all duration-500 flex flex-col lg:flex-row gap-12 group">
+                                    
+                                    {/* Left summary side */}
+                                    <div className="lg:w-1/3 flex flex-col items-start relative z-10">
+                                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-900/40 to-blue-600/10 border border-blue-500/20 flex flex-shrink-0 items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-500 shadow-[inset_0_0_20px_rgba(59,130,246,0.1)]">
+                                            <span className="material-symbols-outlined text-4xl text-blue-400">{service.icon}</span>
+                                        </div>
+                                        <h2 className="text-3xl md:text-4xl font-display font-bold mb-3 group-hover:text-blue-400 transition-colors">{service.title}</h2>
+                                        <div className="text-[10px] font-bold uppercase tracking-widest text-blue-300/70 mb-6 bg-blue-500/10 px-3 py-1 rounded inline-block border border-blue-500/10">
+                                            {service.tagline}
+                                        </div>
+                                        
+                                        <Button3D className="mt-auto hidden lg:inline-flex px-8 py-3 text-xs w-full justify-center">
+                                            Request Consultation
+                                        </Button3D>
+                                    </div>
+
+                                    {/* Right detailed side */}
+                                    <div className="lg:w-2/3 grid sm:grid-cols-2 gap-8 z-10 relative">
+                                        {/* What we provide */}
+                                        <div className="space-y-3 col-span-2">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                                <h4 className="text-sm uppercase tracking-widest font-bold text-white/40">What We Provide</h4>
+                                            </div>
+                                            <p className="text-blue-100/70 font-light leading-relaxed text-lg">
+                                                {service.provide}
+                                            </p>
+                                        </div>
+
+                                        {/* How it works */}
+                                        <div className="space-y-3 bg-black/20 p-6 rounded-2xl border border-white/5 text-sm">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="material-symbols-outlined text-lg text-blue-400">code_blocks</span>
+                                                <h4 className="text-sm font-bold text-white uppercase tracking-wider">How We Do It</h4>
+                                            </div>
+                                            <p className="text-blue-100/60 leading-relaxed font-light">
+                                                {service.how}
+                                            </p>
+                                        </div>
+
+                                        {/* Benefits */}
+                                        <div className="space-y-3 bg-blue-900/10 p-6 rounded-2xl border border-blue-500/10 text-sm">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="material-symbols-outlined text-lg text-emerald-400">trending_up</span>
+                                                <h4 className="text-sm font-bold text-white uppercase tracking-wider">The Benefit</h4>
+                                            </div>
+                                            <p className="text-blue-100/60 leading-relaxed font-light">
+                                                {service.benefit}
+                                            </p>
+                                        </div>
+                                        
+                                        <Button3D className="lg:hidden mt-4 px-8 py-3 w-full justify-center">
+                                            Request Consultation
+                                        </Button3D>
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 dark:text-white">{service.title}</h3>
-                                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex-1">
-                                    {service.description}
-                                </p>
-                                <div className="mt-8 flex items-center text-primary text-sm font-semibold cursor-pointer group-hover:gap-2 transition-all">
-                                    Learn More <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
-                                </div>
-                            </Card3D>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                            </AnimatedSection>
+                        ))}
+                    </div>
 
-                {/* Contact Footer */}
-                <AnimatedSection delay={0.3} className="mt-24 pt-12 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="text-center md:text-left">
-                        <p className="text-slate-500 dark:text-slate-400 text-sm mb-2 uppercase tracking-widest font-bold">Get In Touch</p>
-                        <a className="text-2xl font-medium hover:text-primary transition-colors dark:text-white" href="mailto:info@aarixainnovix.com">
-                            info@aarixainnovix.com
-                        </a>
-                    </div>
-                    <div className="flex gap-4">
-                        <a className="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-500 dark:text-slate-400" href="#">
-                            <span className="material-symbols-outlined text-lg">share</span>
-                        </a>
-                        <a className="w-10 h-10 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all text-slate-500 dark:text-slate-400" href="#">
-                            <span className="material-symbols-outlined text-lg">language</span>
-                        </a>
-                    </div>
-                </AnimatedSection>
-
-                {/* Coming Soon Badge */}
-                <AnimatedSection delay={0.4} className="mt-12 text-center">
-                    <div className="inline-block px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest">
-                        Full Website Coming Soon
-                    </div>
-                </AnimatedSection>
+                </div>
             </main>
-        </motion.div>
+
+            <Footer />
+        </div>
     )
 }

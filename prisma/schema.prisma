@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Blog {
+  id          Int      @id @default(autoincrement())
+  format      String   // E.g. 'Video', 'Article', 'PDF'
+  icon        String   // E.g. 'play_circle'
+  title       String
+  description String
+  image       String   // URL of the thumbnail
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  icon        String
+  title       String
+  tagline     String
+  provideText String
+  howText     String
+  benefitText String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Work {
+  id              Int      @id @default(autoincrement())
+  title           String
+  tagline         String
+  icon            String
+  problem         String
+  solution        String
+  technologiesRaw String   // JSON array string
+  colorsRaw       String   // JSON object string
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Product {
+  id                 Int      @id @default(autoincrement())
+  title              String
+  description        String
+  coreFeaturesRaw    String   // JSON array of objects {icon, title, desc}
+  useCasesRaw        String   // JSON array of strings
+  benefitsRaw        String   // JSON array of objects {stat, label}
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

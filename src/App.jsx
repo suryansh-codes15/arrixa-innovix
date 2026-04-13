@@ -9,6 +9,12 @@ import About from './views/About'
 import Terms from './views/Terms'
 import Privacy from './views/Privacy'
 import Refund from './views/Refund'
+import Products from './views/Products'
+import Services from './views/Services'
+import Work from './views/Work'
+import Blogs from './views/Blogs'
+import Admin from './views/Admin'
+import WhyUs from './views/WhyUs'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -28,6 +34,12 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/refund" element={<Refund />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/why-us" element={<WhyUs />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </AnimatePresence>

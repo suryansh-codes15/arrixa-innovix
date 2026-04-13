@@ -6,7 +6,12 @@ import Button3D from './Button3D'
 
 const navLinks = [
     { to: '/', label: 'Home', id: 'home' },
-    { to: '/about', label: 'About', id: 'about' },
+    { to: '/products', label: 'Product', id: 'product' },
+    { to: '/work', label: 'Work', id: 'work' },
+    { to: '/services', label: 'Services', id: 'services' },
+    { to: '/why-us', label: 'Why Us', id: 'why-us' },
+    { to: '/about', label: 'About Us', id: 'about' },
+    { to: '/blogs', label: 'Blogs', id: 'blogs' },
 ]
 
 export default function Navbar() {
@@ -30,7 +35,7 @@ export default function Navbar() {
             })
         }, options)
 
-        const sections = ['home', 'product', 'how-it-works', 'contact']
+        const sections = ['home', 'product', 'work', 'services', 'contact']
         sections.forEach((id) => {
             const el = document.getElementById(id)
             if (el) observer.observe(el)
