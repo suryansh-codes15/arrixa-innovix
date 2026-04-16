@@ -11,6 +11,33 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
+const reasons = [
+    {
+        title: 'Deep Domain Expertise',
+        desc: 'We are more than just software engineers. We intimately understand the financial markets, liquidity ecosystems, and complex asset classes. We don\'t just write code; we build trading systems.',
+        icon: 'trending_up',
+        color: 'from-blue-500/20 to-blue-400/5'
+    },
+    {
+        title: 'Zero Latency Tolerance',
+        desc: 'In modern systems, slow software is broken software. We architect all our tools with a relentless focus on performance—employing sub-50ms tick processing and distributed edge rendering.',
+        icon: 'speed',
+        color: 'from-emerald-500/20 to-emerald-400/5'
+    },
+    {
+        title: 'Predictive Agentic Architecture',
+        desc: 'Our enterprise pipelines are heavily integrated with fine-tuned LLMs capable of executing autonomous workflows, meaning our software is capable of replacing entire operational divisions.',
+        icon: 'smart_toy',
+        color: 'from-purple-500/20 to-purple-400/5'
+    },
+    {
+        title: 'Institutional Grade Security',
+        desc: 'Handling billions in aggregated wealth demands absolute security. We apply standard ISO 27001 practices, full auditing layers, and impenetrable role-based access to every product.',
+        icon: 'gpp_good',
+        color: 'from-orange-500/20 to-orange-400/5'
+    }
+]
+
 export default function About() {
     return (
         <motion.div
@@ -73,6 +100,31 @@ export default function About() {
                                             <p className="text-white font-semibold mb-1">{item.title}</p>
                                             <p className="text-blue-100/60 text-sm leading-relaxed">{item.desc}</p>
                                         </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </AnimatedSection>
+
+                    {/* Why Choose Us Merged Section */}
+                    <AnimatedSection>
+                        <div className="mt-8 mb-4">
+                            <h2 className="text-3xl font-display font-bold text-white mb-8 text-center tracking-tight">
+                                Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">Aarixa</span>
+                            </h2>
+                            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+                                {reasons.map((item) => (
+                                    <div key={item.title} className="glass-card rounded-3xl p-6 md:p-8 border border-white/5 h-full relative overflow-hidden group hover:border-blue-500/30 transition-colors duration-500">
+                                        <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${item.color} rounded-full blur-[80px] pointer-events-none`} />
+                                        
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300">
+                                            <span className="material-symbols-outlined text-2xl text-white/80 group-hover:text-white">{item.icon}</span>
+                                        </div>
+                                        
+                                        <h3 className="text-xl font-bold mb-3 relative z-10">{item.title}</h3>
+                                        <p className="text-blue-100/60 leading-relaxed text-sm font-light relative z-10">
+                                            {item.desc}
+                                        </p>
                                     </div>
                                 ))}
                             </div>

@@ -14,7 +14,6 @@ import Services from './views/Services'
 import Work from './views/Work'
 import Blogs from './views/Blogs'
 import Admin from './views/Admin'
-import WhyUs from './views/WhyUs'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
           <Route path="/refund" element={<Refund />} />
           <Route path="/products" element={<Products />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/why-us" element={<WhyUs />} />
           <Route path="/work" element={<Work />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/admin" element={<Admin />} />
