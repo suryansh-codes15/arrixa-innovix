@@ -185,14 +185,19 @@ export default function Home() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                         {[
-                            { title: 'WealthSpaze', tagline: 'Next-Gen FinTech Aggregation', icon: 'account_balance', color: 'bg-emerald-500/10 text-emerald-400', border: 'border-emerald-500/20' },
-                            { title: 'IPFS', tagline: 'Decentralized Storage Network', icon: 'hub', color: 'bg-purple-500/10 text-purple-400', border: 'border-purple-500/20' },
-                            { title: 'MarketFilterX', tagline: 'Real-time Market Analytics', icon: 'waterfall_chart', color: 'bg-orange-500/10 text-orange-400', border: 'border-orange-500/20' }
+                            { title: 'WealthSpaze', tagline: 'Next-Gen FinTech Aggregation', icon: 'account_balance', color: 'bg-emerald-500/10 text-emerald-400', border: 'border-emerald-500/20', status: 'COMPLETED' },
+                            { title: 'IPFS', tagline: 'Decentralized Storage Network', icon: 'hub', color: 'bg-purple-500/10 text-purple-400', border: 'border-purple-500/20', status: 'ONGOING' },
+                            { title: 'MarketFilterX', tagline: 'Real-time Market Analytics', icon: 'waterfall_chart', color: 'bg-orange-500/10 text-orange-400', border: 'border-orange-500/20', status: 'COMPLETED' }
                         ].map((work, i) => (
                             <AnimatedSection key={work.title} delay={i * 0.1}>
                                 <div className="glass-card rounded-2xl p-6 h-full flex flex-col border border-white/5 hover:border-white/20 transition-all duration-300 group">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all border ${work.border} ${work.color} group-hover:scale-110`}>
-                                        <span className="material-symbols-outlined text-2xl">{work.icon}</span>
+                                    <div className="flex items-start justify-between mb-6">
+                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all border ${work.border} ${work.color} group-hover:scale-110`}>
+                                            <span className="material-symbols-outlined text-2xl">{work.icon}</span>
+                                        </div>
+                                        <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-widest border border-white/5 bg-white/5 ${work.status === 'ONGOING' ? 'text-blue-400' : 'text-emerald-400'}`}>
+                                            {work.status}
+                                        </span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-2">{work.title}</h3>
                                     <p className="text-blue-100/50 text-sm mb-6 flex-1">{work.tagline}</p>

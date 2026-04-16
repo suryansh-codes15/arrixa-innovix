@@ -108,7 +108,7 @@ export default function About() {
 
                     {/* Why Choose Us Merged Section */}
                     <AnimatedSection>
-                        <div className="mt-8 mb-4">
+                        <div id="why-us" className="mt-8 mb-4">
                             <h2 className="text-3xl font-display font-bold text-white mb-8 text-center tracking-tight">
                                 Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">Aarixa</span>
                             </h2>

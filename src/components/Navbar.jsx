@@ -5,11 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Button3D from './Button3D'
 
 const navLinks = [
-    { to: '/', label: 'Home', id: 'home' },
-    { to: '/products', label: 'Product', id: 'product' },
-    { to: '/work', label: 'Work', id: 'work' },
-    { to: '/services', label: 'Services', id: 'services' },
     { to: '/about', label: 'About Us', id: 'about' },
+    { to: '/about#why-us', label: 'Why Us', id: 'why-us' },
+    { to: '/services', label: 'Services', id: 'services' },
+    { to: '/work', label: 'Projects', id: 'work' },
     { to: '/blogs', label: 'Blogs', id: 'blogs' },
 ]
 

@@ -32,6 +32,10 @@ export default function Work() {
             })
             .catch(() => setLoading(false))
     }, [])
+
+    const ongoingProjects = portfolioItems.filter(p => p.status === 'ONGOING')
+    const completedProjects = portfolioItems.filter(p => p.status !== 'ONGOING')
+
     return (
         <div className="min-h-screen text-white selection:bg-blue-500/30 overflow-x-hidden">
             <Navbar />
@@ -55,60 +59,34 @@ export default function Work() {
                         </p>
                     </AnimatedSection>
 
-                    {/* Work grid */}
-                    <div className="flex flex-col gap-12 md:gap-20">
-                        {portfolioItems.map((item, index) => (
-                            <AnimatedSection key={index} delay={index * 0.1}>
-                                <div className={`glass-card rounded-[2rem] border border-white/5 p-8 sm:p-10 md:p-12 relative overflow-hidden group hover:border-white/20 transition-all duration-500 ${item.colors.glow}`}>
-                                    <div className={`absolute -right-20 -top-20 w-64 h-64 ${item.colors.bg} rounded-full blur-[100px] pointer-events-none group-hover:scale-150 transition-transform duration-700`} />
-                                    
-                                    <div className="flex flex-col lg:flex-row gap-12 relative z-10">
-                                        
-                                        {/* Intro & Title */}
-                                        <div className="lg:w-1/3 flex flex-col items-start border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
-                                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 border ${item.colors.border} ${item.colors.bg} group-hover:scale-105 transition-transform duration-300`}>
-                                                <span className={`material-symbols-outlined text-3xl ${item.colors.text}`}>{item.icon}</span>
-                                            </div>
-                                            <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">{item.title}</h2>
-                                            <p className={`text-sm tracking-widest uppercase font-bold ${item.colors.text} mb-auto`}>{item.tagline}</p>
-                                        </div>
+                    {/* Ongoing Projects Section */}
+                    {ongoingProjects.length > 0 && (
+                        <div className="mb-32">
+                            <h2 className="text-2xl md:text-3xl font-display font-bold text-blue-400 mb-12 flex items-center gap-4">
+                                <span className="w-12 h-[1px] bg-blue-500/30"></span>
+                                Ongoing Projects
+                            </h2>
+                            <div className="flex flex-col gap-12 md:gap-20">
+                                {ongoingProjects.map((item, index) => (
+                                    <ProjectCard key={item.id} item={item} index={index} />
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
-                                        {/* Problem, Solution & Tech */}
-                                        <div className="lg:w-2/3 flex flex-col gap-8">
-                                            <div className="grid sm:grid-cols-2 gap-8">
-                                                <div>
-                                                    <h3 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2">
-                                                        <span className="material-symbols-outlined text-sm">remove_circle_outline</span> The Problem
-                                                    </h3>
-                                                    <p className="text-blue-100/70 font-light leading-relaxed">
-                                                        {item.problem}
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <h3 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2">
-                                                        <span className="material-symbols-outlined text-sm">check_circle</span> The Solution
-                                                    </h3>
-                                                    <p className="text-blue-100/70 font-light leading-relaxed">
-                                                        {item.solution}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="pt-8 border-t border-white/5 mt-auto">
-                                                <h3 className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">Technologies Used</h3>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {item.technologies.map(tech => (
-                                                        <span key={tech} className="px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/5 text-xs font-medium text-white/60">
-                                                            {tech}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </AnimatedSection>
-                        ))}
+                    {/* Completed Projects Section */}
+                    <div>
+                        {ongoingProjects.length > 0 && (
+                            <h2 className="text-2xl md:text-3xl font-display font-bold text-emerald-400 mb-12 flex items-center gap-4">
+                                <span className="w-12 h-[1px] bg-emerald-500/30"></span>
+                                Completed Projects
+                            </h2>
+                        )}
+                        <div className="flex flex-col gap-12 md:gap-20">
+                            {completedProjects.map((item, index) => (
+                                <ProjectCard key={item.id} item={item} index={index} />
+                            ))}
+                        </div>
                     </div>
 
                     <AnimatedSection delay={0.4} className="mt-24 text-center">
@@ -121,5 +99,65 @@ export default function Work() {
 
             <Footer />
         </div>
+    )
+}
+
+function ProjectCard({ item, index }) {
+    return (
+        <AnimatedSection key={index} delay={index * 0.1}>
+            <div className={`glass-card rounded-[2rem] border border-white/5 p-8 sm:p-10 md:p-12 relative overflow-hidden group hover:border-white/20 transition-all duration-500 ${item.colors.glow}`}>
+                <div className={`absolute -right-20 -top-20 w-64 h-64 ${item.colors.bg} rounded-full blur-[100px] pointer-events-none group-hover:scale-150 transition-transform duration-700`} />
+                
+                <div className="flex flex-col lg:flex-row gap-12 relative z-10">
+                    
+                    {/* Intro & Title */}
+                    <div className="lg:w-1/3 flex flex-col items-start border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
+                        <div className="flex items-center justify-between w-full mb-8">
+                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border ${item.colors.border} ${item.colors.bg} group-hover:scale-105 transition-transform duration-300`}>
+                                <span className={`material-symbols-outlined text-3xl ${item.colors.text}`}>{item.icon}</span>
+                            </div>
+                            <span className={`text-[10px] px-2 py-0.5 rounded font-black uppercase tracking-widest border border-white/5 bg-white/5 ${item.status === 'ONGOING' ? 'text-blue-400' : 'text-emerald-400'}`}>
+                                {item.status || 'COMPLETED'}
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">{item.title}</h2>
+                        <p className={`text-sm tracking-widest uppercase font-bold ${item.colors.text} mb-auto`}>{item.tagline}</p>
+                    </div>
+
+                    {/* Problem, Solution & Tech */}
+                    <div className="lg:w-2/3 flex flex-col gap-8">
+                        <div className="grid sm:grid-cols-2 gap-8">
+                            <div>
+                                <h3 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-sm">remove_circle_outline</span> The Problem
+                                </h3>
+                                <p className="text-blue-100/70 font-light leading-relaxed">
+                                    {item.problem}
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-sm">check_circle</span> The Solution
+                                </h3>
+                                <p className="text-blue-100/70 font-light leading-relaxed">
+                                    {item.solution}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="pt-8 border-t border-white/5 mt-auto">
+                            <h3 className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">Technologies Used</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {item.technologies.map(tech => (
+                                    <span key={tech} className="px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/5 text-xs font-medium text-white/60">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </AnimatedSection>
     )
 }

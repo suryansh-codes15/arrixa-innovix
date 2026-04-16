@@ -9,16 +9,47 @@ import Button3D from '../components/Button3D'
 
 import { useState, useEffect } from 'react'
 
-export default function Services() {
-    const [coreServices, setCoreServices] = useState([])
-    const [loading, setLoading] = useState(true)
+const coreServices = [
+    {
+        id: 1,
+        icon: 'language',
+        title: 'Website Development',
+        tagline: 'High-Performance Web Architectures',
+        provide: 'We design and build bespoke, responsive, and blazing-fast websites using modern frameworks like React and Next.js, ensuring institutional-grade stability and reach.',
+        how: 'Leveraging Server-Side Rendering (SSR) and edge-optimized delivery pipelines to achieve perfect Lighthouse scores and zero-latency user experiences.',
+        benefit: 'Increased conversion rates, superior SEO rankings, and a digital presence that feels as premium as your services.'
+    },
+    {
+        id: 2,
+        icon: 'phone_iphone',
+        title: 'App Development',
+        tagline: 'Precision-Engineered Mobile Solutions',
+        provide: 'Cross-platform and native mobile applications that bridge the gap between complex functionality and intuitive UX, designed for both iOS and Android ecosystems.',
+        how: 'Using unified codebases with high-performance native bridges to reduce development time while maintaining 60fps interaction standards.',
+        benefit: 'Wider market reach, deeper customer engagement, and a scalable platform for your mobile-first users.'
+    },
+    {
+        id: 3,
+        icon: 'campaign',
+        title: 'Outreach Service',
+        tagline: 'Data-Driven Growth Engines',
+        provide: 'Sophisticated marketing and outreach campaigns that utilize deep audience segmentation and automated engagement layers to drive consistent lead generation.',
+        how: 'Integrating CRM triggers with personalized communication streams across email, LinkedIn, and social channels to build high-intent pipelines.',
+        benefit: 'Higher ROI on marketing spend, more qualified leads, and significant time savings for your sales division.'
+    },
+    {
+        id: 4,
+        icon: 'smart_toy',
+        title: 'Agentic AI & Automation',
+        tagline: 'Autonomous Enterprise Intelligence',
+        provide: 'Custom-tuned AI agents and automated workflows designed to replace high-volume manual operations with intelligent, self-correcting software patterns.',
+        how: 'Utilizing advanced LLM orchestration and vector-based knowledge retrieval to enable software that "thinks" and executes complex business logic.',
+        benefit: 'Dramatically reduced operational overhead, 24/7 task execution, and a future-proofed technical foundation.'
+    }
+]
 
-    useEffect(() => {
-        fetch('/api/crud/service')
-            .then(res => res.json())
-            .then(data => { setCoreServices(data || []); setLoading(false) })
-            .catch(() => setLoading(false))
-    }, [])
+export default function Services() {
+
     return (
         <div className="min-h-screen text-white selection:bg-blue-500/30 overflow-x-hidden">
             <Navbar />

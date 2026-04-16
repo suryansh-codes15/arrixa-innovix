@@ -1,19 +1,25 @@
 import { PrismaClient } from '@prisma/client'
-import pkg from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
+import pg from 'pg'
+const Pool = pg.Pool || pg.default?.Pool
 
-const { Pool } = pkg
 
 const globalForPrisma = globalThis
 
-let prisma;
-
-if (!globalForPrisma.prisma) {
+const prismaClientSingleton = () => {
+  console.log('Initializing Prisma 7 Client with Postgres Adapter...')
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not defined in environment variables')
+  }
   const pool = new Pool({ connectionString: process.env.DATABASE_URL })
   const adapter = new PrismaPg(pool)
-  prisma = new PrismaClient({ adapter })
-} else {
-  prisma = globalForPrisma.prisma
+  return new PrismaClient({ adapter })
 }
 
+const prisma = globalForPrisma.prisma ?? prismaClientSingleton()
+
 export { prisma }
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = prisma
+}

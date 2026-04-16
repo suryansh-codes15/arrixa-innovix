@@ -7,15 +7,14 @@ const passwordSecret = 'admin123'
 
 const models = [
     { name: 'blog', label: 'Blogs' },
-    { name: 'service', label: 'Services' },
-    { name: 'work', label: 'Work' },
+    { name: 'project', label: 'Projects' },
     { name: 'product', label: 'Products' }
 ]
 
 export default function Admin() {
     const [auth, setAuth] = useState(false)
     const [passInput, setPassInput] = useState('')
-    
+
     const [activeTab, setActiveTab] = useState('blog')
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
@@ -66,7 +65,7 @@ export default function Admin() {
     }
 
     const handleDelete = async (id) => {
-        if(!confirm('Are you sure you want to delete this?')) return
+        if (!confirm('Are you sure you want to delete this?')) return
         await fetch(`/api/crud/${activeTab}?id=${id}`, { method: 'DELETE' })
         fetchData()
     }
@@ -76,9 +75,9 @@ export default function Admin() {
             <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
                 <form onSubmit={handleLogin} className="glass-card p-10 rounded-2xl flex flex-col gap-4 border border-white/10">
                     <h1 className="text-2xl font-bold mb-4">Admin Access</h1>
-                    <input 
-                        type="password" 
-                        value={passInput} 
+                    <input
+                        type="password"
+                        value={passInput}
                         onChange={e => setPassInput(e.target.value)}
                         placeholder="Master Password"
                         className="bg-black/40 border border-white/20 p-3 rounded text-white"
@@ -94,16 +93,25 @@ export default function Admin() {
     const renderFormInputs = () => {
         const fields = {
             blog: ['format', 'icon', 'title', 'description', 'image'],
-            service: ['icon', 'title', 'tagline', 'provideText', 'howText', 'benefitText'],
-            work: ['title', 'tagline', 'icon', 'problem', 'solution', 'technologiesRaw', 'colorsRaw'],
+            work: ['title', 'tagline', 'icon', 'problem', 'solution', 'status', 'technologiesRaw', 'colorsRaw'],
             product: ['title', 'description', 'coreFeaturesRaw', 'useCasesRaw', 'benefitsRaw']
         }
 
         return fields[activeTab].map(field => (
             <div key={field} className="flex flex-col gap-1">
                 <label className="text-xs uppercase tracking-wider text-blue-300 font-bold">{field}</label>
-                {field.includes('Raw') || field.includes('description') || field.includes('Text') || field.includes('solution') || field.includes('problem') ? (
-                    <textarea 
+                {field === 'status' ? (
+                    <select
+                        value={formData[field] || 'COMPLETED'}
+                        onChange={e => setFormData({ ...formData, [field]: e.target.value })}
+                        className="bg-black/40 border border-white/10 p-3 rounded text-white text-sm"
+                        required
+                    >
+                        <option value="COMPLETED">Completed</option>
+                        <option value="ONGOING">Ongoing</option>
+                    </select>
+                ) : (field.includes('Raw') || field.includes('description') || field.includes('Text') || field.includes('solution') || field.includes('problem')) ? (
+                    <textarea
                         value={formData[field] || ''}
                         onChange={e => setFormData({ ...formData, [field]: e.target.value })}
                         className="bg-black/40 border border-white/10 p-3 rounded text-white text-sm min-h-[100px]"
@@ -111,8 +119,8 @@ export default function Admin() {
                         required
                     />
                 ) : (
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         value={formData[field] || ''}
                         onChange={e => setFormData({ ...formData, [field]: e.target.value })}
                         className="bg-black/40 border border-white/10 p-3 rounded text-white text-sm"
@@ -126,21 +134,21 @@ export default function Admin() {
     return (
         <div className="min-h-screen bg-slate-950 text-white selection:bg-blue-500/30 font-display pt-24 px-6 md:px-12 pb-24">
             <Navbar />
-            
+
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 mt-10">
                 {/* Sidebar */}
                 <div className="w-full md:w-64 flex flex-col gap-2">
                     <h2 className="text-xl font-bold mb-4 px-2 tracking-tight">Data Models</h2>
                     {models.map(m => (
-                        <button 
-                            key={m.name} 
+                        <button
+                            key={m.name}
                             onClick={() => { setActiveTab(m.name); setIsEditing(false); setFormData({}); }}
                             className={`text-left px-4 py-3 rounded-lg font-bold border transition ${activeTab === m.name ? 'bg-blue-600/20 text-blue-400 border-blue-500/50' : 'bg-transparent text-white/50 border-transparent hover:bg-white/5 hover:text-white'}`}
                         >
                             {m.label}
                         </button>
                     ))}
-                    <button onClick={() => window.location.href="/"} className="mt-auto px-4 py-3 text-sm text-white/30 hover:text-white transition text-left mt-10 border-t border-white/10">Return to Site</button>
+                    <button onClick={() => window.location.href = "/"} className="mt-auto px-4 py-3 text-sm text-white/30 hover:text-white transition text-left mt-10 border-t border-white/10">Return to Site</button>
                 </div>
 
                 {/* Main Content */}
@@ -148,7 +156,7 @@ export default function Admin() {
                     <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-6">
                         <h1 className="text-3xl font-bold capitalize">{activeTab} Management</h1>
                         {!isEditing && (
-                            <button 
+                            <button
                                 onClick={() => { setFormData({}); setIsEditing(true); }}
                                 className="bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 border border-emerald-500/30 px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2"
                             >
@@ -187,13 +195,13 @@ export default function Admin() {
                                             <span className="text-sm text-white/50">{item.description || item.tagline || item.problem?.substring(0, 50) + '...'}</span>
                                         </div>
                                         <div className="flex gap-2">
-                                            <button 
+                                            <button
                                                 onClick={() => { setFormData(item); setIsEditing(true); }}
                                                 className="bg-white/10 hover:bg-blue-500/50 p-2 rounded block"
                                             >
                                                 <span className="material-symbols-outlined text-[18px]">edit</span>
                                             </button>
-                                            <button 
+                                            <button
                                                 onClick={() => handleDelete(item.id)}
                                                 className="bg-white/10 hover:bg-red-500/50 text-red-300 p-2 rounded block"
                                             >
