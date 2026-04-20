@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Youtube, Instagram, Linkedin } from 'lucide-react'
 
 export default function Footer() {
     return (
@@ -19,6 +20,24 @@ export default function Footer() {
                         <p className="text-blue-100/40 text-xs leading-relaxed max-w-xs">
                             Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully.
                         </p>
+                        <div className="flex gap-4 pt-2">
+                            {[
+                                { icon: Youtube, href: 'https://youtube.com/@aarixainnovix?si=f5_cw7uCC5abOv2p', label: 'YouTube', color: 'hover:text-red-500' },
+                                { icon: Instagram, href: 'https://www.instagram.com/aarixa_innovix?igsh=N2RtZ3FoOW11dmww&utm_source=qr', label: 'Instagram', color: 'hover:text-pink-500' },
+                                { icon: Linkedin, href: 'https://www.linkedin.com/in/aarixa-innovix-188164350/?skipRedirect=true', label: 'LinkedIn', color: 'hover:text-blue-400' },
+                            ].map((social) => (
+                                <a
+                                    key={social.label}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`text-blue-100/40 transition-colors ${social.color}`}
+                                    aria-label={social.label}
+                                >
+                                    <social.icon size={20} />
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Product */}
@@ -59,7 +78,7 @@ export default function Footer() {
                         <ul className="space-y-4 text-blue-100/60 text-sm">
                             <li>📧 info@aarixainnovix.com</li>
                             <li>📍 Unit No. 1116, Tower B4, Spaze ITech Park, Sector 49, Gurugram, Haryana 122018</li>
-                            <li>🕐 Mon–Sat, 9:30 AM – 6:00 PM IST</li>
+                            <li>🕐 Mon–Fri, 9:30 AM – 6:00 PM IST</li>
                         </ul>
                     </div>
                 </div>

@@ -138,7 +138,7 @@ export default function About() {
                                 <div><span className="text-blue-400 font-semibold block mb-1">Company</span>Aarixa Innovix Pvt. Ltd.</div>
                                 <div><span className="text-blue-400 font-semibold block mb-1">Email</span>info@aarixainnovix.com</div>
                                 <div><span className="text-blue-400 font-semibold block mb-1">Office</span>Unit No. 1116, Tower B4, Spaze ITech Park, Sector 49, Gurugram, Haryana 122018</div>
-                                <div><span className="text-blue-400 font-semibold block mb-1">Hours</span>Monday – Saturday, 9:30 AM – 6:00 PM IST</div>
+                                <div><span className="text-blue-400 font-semibold block mb-1">Hours</span>Monday – Friday, 9:30 AM – 6:00 PM IST</div>
                             </div>
                         </div>
                     </AnimatedSection>

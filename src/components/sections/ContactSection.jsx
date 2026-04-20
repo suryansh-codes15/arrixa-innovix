@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { Youtube, Instagram, Linkedin } from 'lucide-react'
 import AnimatedSection from '../AnimatedSection'
 import Button3D from '../Button3D'
 
@@ -136,7 +137,7 @@ export default function ContactSection({ id }) {
                         {[
                             { icon: 'mail', title: 'Email Us', text: 'info@aarixainnovix.com', subtext: 'We respond within 1–2 business days' },
                             { icon: 'location_on', title: 'Our Office', text: 'Unit No. 1116, Tower B4, Spaze ITech Park, Sector 49', subtext: 'Gurugram, Haryana 122018' },
-                            { icon: 'schedule', title: 'Business Hours', text: 'Monday – Saturday', subtext: '9:30 AM – 6:00 PM IST' },
+                            { icon: 'schedule', title: 'Business Hours', text: 'Monday – Friday', subtext: '9:30 AM – 6:00 PM IST' },
                         ].map((card, i) => (
                             <AnimatedSection key={card.title} delay={0.2 + i * 0.1}>
                                 <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors group">
@@ -151,6 +152,31 @@ export default function ContactSection({ id }) {
                                 </div>
                             </AnimatedSection>
                         ))}
+
+                        {/* Social Links */}
+                        <AnimatedSection delay={0.5}>
+                            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                                <h3 className="text-white font-bold text-lg mb-4">Follow Our Journey</h3>
+                                <div className="flex gap-4">
+                                    {[
+                                        { icon: Youtube, href: 'https://youtube.com/@aarixainnovix?si=f5_cw7uCC5abOv2p', label: 'YouTube', color: 'hover:text-red-500' },
+                                        { icon: Instagram, href: 'https://www.instagram.com/aarixa_innovix?igsh=N2RtZ3FoOW11dmww&utm_source=qr', label: 'Instagram', color: 'hover:text-pink-500' },
+                                        { icon: Linkedin, href: 'https://www.linkedin.com/in/aarixa-innovix-188164350/?skipRedirect=true', label: 'LinkedIn', color: 'hover:text-blue-400' },
+                                    ].map((social) => (
+                                        <a
+                                            key={social.label}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`w-12 h-12 rounded-xl bg-blue-900/30 flex items-center justify-center text-blue-400 transition-all duration-300 border border-white/5 hover:border-blue-500/50 hover:bg-blue-600/20 ${social.color} group`}
+                                            aria-label={social.label}
+                                        >
+                                            <social.icon size={20} className="transition-transform group-hover:scale-110" />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </div>
