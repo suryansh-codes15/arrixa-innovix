@@ -1,8 +1,13 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and private routes
+Disallow: /admin
 Disallow: /api/
 Disallow: /_next/
+Disallow: /static/
 Disallow: /server/
 
+# Host and Sitemap
+Host: https://aarixainnovix.com
 Sitemap: https://aarixainnovix.com/sitemap.xml
